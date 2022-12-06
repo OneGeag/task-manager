@@ -3,12 +3,25 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"encoding/json"
 
 	"github.com/OneGeag/task-manager/internal/data"
 )
 
 func (app *application) createTaskHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "create a new task")
+	var input struct {
+		Title string `json:"title"`
+		Description string `json:"description"`
+		Expires int `json:"expires"`
+	}
+
+	err := json.NewDecoder(r.Body).Decode(&input)
+	if err != nil {
+		http.Error(w, "Bad input", http.StatusBadRequest)
+		return
+	}
+
+	fmt.Fprintf(w, "%+v\n", input)
 }
 
 func (app *application) showTaskHandler(w http.ResponseWriter, r *http.Request) {
