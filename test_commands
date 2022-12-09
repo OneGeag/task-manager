@@ -1,1 +1,0 @@
-curl -d $(cat test_input_data) localhost:4000/v1/tasks

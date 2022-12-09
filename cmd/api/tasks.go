@@ -12,6 +12,7 @@ func (app *application) createTaskHandler(w http.ResponseWriter, r *http.Request
 	var input struct {
 		Title string `json:"title"`
 		Description string `json:"description"`
+		Tags []string `json:"tags"`
 		Expires int `json:"expires"`
 	}
 
