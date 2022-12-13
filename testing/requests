@@ -1,0 +1,2 @@
+BODY={"title":"Json decoder bug","description":"some bad happened","tags":["go","json","api"]}
+curl -d "$BODY" localhost:4000/v1/tasks

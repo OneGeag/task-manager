@@ -14,10 +14,12 @@ func (app *application) createTaskHandler(w http.ResponseWriter, r *http.Request
 		Description string `json:"description"`
 		Tags []string `json:"tags"`
 		Expires int `json:"expires"`
+		Progress data.Progress `json:"progress"`
 	}
 
 	err := json.NewDecoder(r.Body).Decode(&input)
 	if err != nil {
+		app.logger.Println(err)
 		http.Error(w, "Bad input", http.StatusBadRequest)
 		return
 	}
