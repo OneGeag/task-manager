@@ -1,4 +1,4 @@
 # task-manager
 
 TODO:
-- comment functionality for task
+- add something like /tasks/1/comments/2
