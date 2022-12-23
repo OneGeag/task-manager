@@ -1,4 +1,4 @@
-module github.com/OneGeag/task-manager
+module github.com/onegeag/task-manager
 
 go 1.19
 

@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"encoding/json"
 
-	"github.com/OneGeag/task-manager/internal/data"
+	"github.com/onegeag/task-manager/internal/data"
 )
 
 func (app *application) createTaskHandler(w http.ResponseWriter, r *http.Request) {

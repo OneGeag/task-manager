@@ -11,4 +11,5 @@ type Task struct {
 	Progress Progress `json:"progress"`
 	CreatedAt time.Time `json:"-"`
 	Expires time.Time `json:"-"`
+	Version int32 `json:"version"`
 }
