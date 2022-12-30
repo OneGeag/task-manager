@@ -3,7 +3,7 @@ package data
 import "time"
 
 type Task struct {
-	ID int64 `json:"id"`
+	TaskID int64 `json:"taskid"`
 	Title string `json:"title"`
 	Description string `json:"description"`
 	Tags []string `json:"tags"`

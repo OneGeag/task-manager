@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"encoding/json"
 
-	"github.com/onegeag/task-manager/internal/data"
+	"github.com/onegeag/your-task-manager/internal/data"
 )
 
 func (app *application) createTaskHandler(w http.ResponseWriter, r *http.Request) {
@@ -28,14 +28,14 @@ func (app *application) createTaskHandler(w http.ResponseWriter, r *http.Request
 }
 
 func (app *application) showTaskHandler(w http.ResponseWriter, r *http.Request) {
-	id, err := app.readIDParam(r)
+	id, err := app.readTaskIDParam(r)
 	if err != nil {
 		http.NotFound(w, r)
 		return
 	}
 
 	task := data.Task{
-		ID: id,
+		TaskID: id,
 	}
 
 	err = app.writeJSON(w, http.StatusOK, envelope{"task": task}, nil)
