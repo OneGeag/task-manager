@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 	"net/http"
 	"encoding/json"
 
@@ -36,6 +37,7 @@ func (app *application) showTaskHandler(w http.ResponseWriter, r *http.Request) 
 
 	task := data.Task{
 		TaskID: id,
+		CreatedAt: time.Now(),
 	}
 
 	err = app.writeJSON(w, http.StatusOK, envelope{"task": task}, nil)
