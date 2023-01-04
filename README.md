@@ -2,3 +2,4 @@
 
 TODO:
 - add data storage
+- add personal metrics?
