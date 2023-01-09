@@ -3,4 +3,4 @@
 TODO:
 - add data storage
 - add personal metrics?
-- email sender with progress
+- sending emails with task progress
