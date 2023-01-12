@@ -8,7 +8,6 @@ type Task struct {
 	Description string `json:"description"`
 	Tags []string `json:"tags"`
 	Status string `json:"status"`
-	Progress Progress `json:"progress"`
 	CreatedAt time.Time `json:"-"`
 	Expires time.Time `json:"-"`
 	Version int32 `json:"version"`
