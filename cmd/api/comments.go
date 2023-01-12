@@ -24,13 +24,23 @@ func (app *application) showCommentHandler(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-	comment := data.Comment {
-		TaskID: taskId,
+	comment := data.Comment{
+		TaskID:    taskId,
 		CommentID: commentId,
 		CreatedAt: time.Now(),
 	}
 
 	err = app.writeJSON(w, http.StatusOK, envelope{"comment": comment}, nil)
+	if err != nil {
+		app.logger.Println(err)
+		http.Error(w, "The server have got some issue", http.StatusInternalServerError)
+	}
+}
+
+func (app *application) showAllCommentsHandler(w http.ResponseWriter, r *http.Request) {
+	message := "Not implemented yet"
+
+	err := app.writeJSON(w, http.StatusOK, envelope{"status": message}, nil)
 	if err != nil {
 		app.logger.Println(err)
 		http.Error(w, "The server have got some issue", http.StatusInternalServerError)

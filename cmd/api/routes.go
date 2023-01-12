@@ -16,6 +16,9 @@ func (app *application) routes() *httprouter.Router {
 	createComment := app.createCommentHandler
 	router.HandlerFunc(http.MethodPost, "/v1/tasks/:taskid/comments", createComment)
 
+	showAllComments := app.showAllCommentsHandler
+	router.HandlerFunc(http.MethodGet, "/v1/tasks/:taskid/comments", showAllComments)
+
 	showComment := app.showCommentHandler
 	router.HandlerFunc(http.MethodGet, "/v1/tasks/:taskid/comments/:commentid", showComment)
 

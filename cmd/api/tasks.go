@@ -1,21 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"time"
-	"net/http"
 	"encoding/json"
+	"fmt"
+	"net/http"
+	"time"
 
 	"github.com/onegeag/your-task-manager/internal/data"
 )
 
 func (app *application) createTaskHandler(w http.ResponseWriter, r *http.Request) {
 	var input struct {
-		Title string `json:"title"`
-		Description string `json:"description"`
-		Tags []string `json:"tags"`
-		Expires int `json:"expires"`
-		Progress data.Progress `json:"progress"`
+		Title       string        `json:"title"`
+		Description string        `json:"description"`
+		Tags        []string      `json:"tags"`
+		Expires     int           `json:"expires"`
 	}
 
 	err := json.NewDecoder(r.Body).Decode(&input)
@@ -36,7 +35,7 @@ func (app *application) showTaskHandler(w http.ResponseWriter, r *http.Request) 
 	}
 
 	task := data.Task{
-		TaskID: id,
+		TaskID:    id,
 		CreatedAt: time.Now(),
 	}
 
